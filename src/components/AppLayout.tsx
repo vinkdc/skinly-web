@@ -17,11 +17,16 @@ export function AppLayout() {
   }, [pathname]);
 
   return (
-    <div className="app-layout">
-      <Sidebar />
-      <main className="main-content">
-        <Outlet />
-      </main>
-    </div>
+    <>
+      <div className="prototype-notice" role="status">
+        Prototype Preview — Skinly is currently a demo/prototype. Some features use sample data and some flows are not yet fully implemented.
+      </div>
+      <div className="app-layout">
+        <Sidebar />
+        <main className="main-content">
+          <Outlet />
+        </main>
+      </div>
+    </>
   );
 }
