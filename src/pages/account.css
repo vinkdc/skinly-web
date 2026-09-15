@@ -1,0 +1,53 @@
+.account-demo { padding-top: 64px; padding-bottom: 80px; }
+.account-heading, .account-section-heading, .account-profile { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.account-heading h1 { font-family: var(--font-display); font-size: clamp(32px, 4vw, 48px); line-height: 1.15; margin-bottom: 16px; }
+.account-demo p { color: var(--ink-muted); }
+.account-badge { display: inline-block; font-size: 12px; font-weight: 600; padding: 5px 10px; background: var(--surface-3); border-radius: 6px; color: var(--ink-muted); white-space: nowrap; }
+.account-profile { margin: 32px 0 48px; padding: 24px; background: var(--surface-2); border-radius: var(--radius-md); justify-content: flex-start; }
+.account-profile a { margin-left: auto; }
+.account-avatar { display: grid; place-items: center; flex-shrink: 0; width: 56px; height: 56px; background: var(--accent); border-radius: 12px; font-size: 28px; font-weight: 700; }
+.account-demo h2 { font-size: 20px; }
+.account-section-heading label { font-size: 13px; color: var(--ink-muted); }
+.account-section-heading select { display: block; min-height: 44px; margin-top: 6px; padding: 8px 12px; background: var(--surface-2); border: 0; border-radius: 6px; color: var(--ink); font: inherit; }
+.account-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+.account-stats > div, .account-panel { padding: 24px; background: var(--surface-1); border-radius: var(--radius-md); }
+.account-stats dt { color: var(--ink-muted); font-size: 14px; }
+.account-stats dd { font-size: 40px; font-family: var(--font-display); font-weight: 600; }
+.account-stats small { font: 16px var(--font-body); color: var(--ink-subtle); }
+.account-columns { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; }
+.account-favorites { list-style: none; margin-top: 24px; }
+.account-favorites li + li { margin-top: 22px; }
+.account-skin-image { width: 100%; height: 100px; object-fit: contain; margin-bottom: 18px; padding: 12px; background: radial-gradient(ellipse, var(--surface-3), transparent 75%); }
+.account-session-skin { display: flex; align-items: center; gap: 16px; min-width: 230px; }
+.account-session-skin img { width: 96px; height: 40px; object-fit: contain; flex-shrink: 0; }
+.account-favorites li > div { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 14px; }
+.account-favorites span { color: var(--ink-muted); }
+.account-favorites meter { width: 100%; height: 12px; margin-top: 8px; }
+.account-favorites meter::-webkit-meter-bar { background: var(--surface-3); border: 0; }
+.account-favorites meter::-webkit-meter-optimum-value { background: var(--accent); }
+.account-favorites meter::-moz-meter-bar { background: var(--accent); }
+.account-sharing-copy { margin: 24px 0 16px; }
+.account-toggle { display: flex; align-items: center; gap: 12px; min-height: 44px; cursor: pointer; }
+.account-toggle input { width: 20px; height: 20px; accent-color: var(--accent); }
+.account-toggle + p { margin-top: 12px; font-size: 13px; }
+.account-history { margin-top: 24px; }
+.account-history h2 { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.account-table-scroll { overflow-x: auto; }
+.account-history table { width: 100%; text-align: left; border-collapse: collapse; margin-top: 16px; font-size: 14px; }
+.account-history caption { text-align: left; color: var(--ink-muted); margin-bottom: 12px; }
+.account-history th, .account-history td { padding: 14px 12px; }
+.account-history tbody tr:nth-child(odd) { background: var(--surface-2); }
+.account-history th { color: var(--ink-muted); font-weight: 500; }
+.account-demo :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+@media (max-width: 768px) {
+  .account-demo { padding-top: 100px; }
+  .account-heading, .account-section-heading { align-items: flex-start; flex-direction: column; }
+  .account-profile { flex-wrap: wrap; }
+  .account-profile a { margin-left: 0; }
+  .account-columns { grid-template-columns: 1fr; }
+  .account-stats { gap: 8px; }
+  .account-stats > div { padding: 12px; }
+  .account-stats dd { font-size: 30px; }
+  .account-stats dt { font-size: 12px; }
+  .account-panel { padding: 18px; }
+}

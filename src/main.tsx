@@ -7,6 +7,7 @@ import { Privacy } from "./pages/Privacy";
 import { Terms } from "./pages/Terms";
 import { Rankings } from "./pages/Rankings";
 import { WeaponLeaderboard } from "./pages/WeaponLeaderboard";
+import { Account } from "./pages/Account";
 
 import { AppLayout } from "./components/AppLayout";
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/account" element={<Account />} />
           <Route path="/rankings" element={<Rankings />} />
           <Route path="/rankings/:weaponName" element={<WeaponLeaderboard />} />
         </Route>

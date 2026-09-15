@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, Trophy, Menu, X, Download } from "lucide-react";
+import { Home, Trophy, Menu, X, Download, UserRound } from "lucide-react";
 
 export function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +10,7 @@ export function Sidebar() {
   const links = [
     { label: "Home", href: "/", icon: <Home size={20} /> },
     { label: "Rankings", href: "/rankings", icon: <Trophy size={20} /> },
+    { label: "Account Demo", href: "/account", icon: <UserRound size={20} /> },
   ];
 
   const handleMouseEnter = () => setIsOpen(true);
@@ -61,6 +62,7 @@ export function Sidebar() {
               <Link
                 key={link.href}
                 to={link.href}
+                aria-label={link.label}
                 className={`sidebar-link ${isActive ? "active" : ""}`}
                 title={!isOpen ? link.label : undefined}
                 onClick={() => {
