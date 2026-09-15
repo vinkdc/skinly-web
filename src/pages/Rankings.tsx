@@ -2,8 +2,16 @@ import React, { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Footer } from "../components/Footer";
 
-// We'll hardcode some popular weapons for the top navigation
-const POPULAR_WEAPONS = ["Vandal", "Phantom", "Operator", "Sheriff", "Melee"];
+const WEAPON_CATEGORIES = [
+  { name: "Rifles", weapons: ["Vandal", "Phantom", "Guardian", "Bulldog"] },
+  { name: "Sidearms", weapons: ["Classic", "Shorty", "Frenzy", "Ghost", "Sheriff"] },
+  { name: "SMGs", weapons: ["Stinger", "Spectre"] },
+  { name: "Shotguns", weapons: ["Bucky", "Judge"] },
+  { name: "Snipers", weapons: ["Marshal", "Outlaw", "Operator"] },
+  { name: "Machine Guns", weapons: ["Ares", "Odin"] },
+  { name: "Melee", weapons: ["Melee"] },
+];
+const WEAPONS = WEAPON_CATEGORIES.flatMap(category => category.weapons);
 
 type SkinData = {
   data: {
@@ -77,7 +85,7 @@ export function Rankings() {
   useEffect(() => {
     if (allSkins.length === 0) return;
     const imgMap: Record<string, string> = {};
-    POPULAR_WEAPONS.forEach(weapon => {
+    WEAPONS.forEach(weapon => {
       const matching = allSkins.filter(skin => skin.weapon.toLowerCase() === weapon.toLowerCase());
       if (matching.length > 0) {
         imgMap[weapon] = matching[Math.floor(Math.random() * matching.length)].skin_image;
@@ -102,22 +110,6 @@ export function Rankings() {
       </div>
 
       <div className="container" style={{ paddingBottom: 80 }}>
-        <div className="weapon-browse-heading">
-          <h2 className="section-title">Browse by Weapon</h2>
-          <Link to="/rankings/all" className="all-weapons-btn">All Weapons <span aria-hidden="true">→</span></Link>
-        </div>
-        
-        <div className="weapon-categories-grid">
-          {POPULAR_WEAPONS.map(weapon => (
-            <Link to={`/rankings/${weapon.toLowerCase()}`} key={weapon} className="weapon-category-card">
-              <h3>{weapon}</h3>
-              {weaponImages[weapon] && (
-                <img src={weaponImages[weapon]} alt="" className="hover-skin-img" />
-              )}
-            </Link>
-          ))}
-        </div>
-
         <div className="rankings-split" style={{ marginTop: 60, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
           
           <div className="rankings-panel">
@@ -184,6 +176,28 @@ export function Rankings() {
           </div>
 
         </div>
+
+        <section aria-labelledby="weapon-browse-title">
+          <div className="weapon-browse-heading">
+            <h2 className="section-title" id="weapon-browse-title">Browse by Weapon</h2>
+            <Link to="/rankings/all" className="all-weapons-btn">All Weapons <span aria-hidden="true">→</span></Link>
+          </div>
+          {WEAPON_CATEGORIES.map(category => (
+            <section className="weapon-group" key={category.name} aria-label={category.name}>
+              <h3 className="weapon-group-title">{category.name}</h3>
+              <div className="weapon-categories-grid">
+                {category.weapons.map(weapon => (
+                  <Link to={`/rankings/${weapon.toLowerCase()}`} key={weapon} className="weapon-category-card">
+                    <h4>{weapon}</h4>
+                    {weaponImages[weapon] && (
+                      <img src={weaponImages[weapon]} alt="" className="hover-skin-img" />
+                    )}
+                  </Link>
+                ))}
+              </div>
+            </section>
+          ))}
+        </section>
       </div>
       
       <Footer />

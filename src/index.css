@@ -1013,8 +1013,18 @@ html, body {
 
 .weapon-categories-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(180px, 100%), 1fr));
   gap: 16px;
+}
+
+.weapon-group + .weapon-group { margin-top: 28px; }
+.weapon-group-title {
+  margin-bottom: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
 }
 
 .weapon-browse-heading {
@@ -1077,7 +1087,7 @@ html, body {
   outline-offset: 4px;
 }
 
-.weapon-category-card h3 {
+.weapon-category-card h4 {
   font-size: 16px;
   color: var(--ink);
   margin-bottom: 0;
@@ -1086,8 +1096,8 @@ html, body {
   transition: color 160ms ease;
 }
 
-.weapon-category-card:hover h3,
-.weapon-category-card:focus-visible h3 { color: var(--accent-hover); }
+.weapon-category-card:hover h4,
+.weapon-category-card:focus-visible h4 { color: var(--accent-hover); }
 
 .hover-skin-img {
   position: absolute;
@@ -1112,7 +1122,7 @@ html, body {
 
 @media (prefers-reduced-motion: reduce) {
   .weapon-category-card,
-  .weapon-category-card h3,
+  .weapon-category-card h4,
   .hover-skin-img { transition: none; }
 }
 
