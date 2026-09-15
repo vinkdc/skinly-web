@@ -999,7 +999,7 @@ html, body {
 
 /* ── Rankings & Tier Lists ── */
 .rankings-header {
-  padding-top: 120px;
+  padding-top: 16px;
   padding-bottom: 40px;
   border-bottom: 1px solid var(--hairline);
 }
@@ -1017,24 +1017,64 @@ html, body {
   gap: 16px;
 }
 
+.weapon-browse-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 40px;
+  margin-bottom: 24px;
+}
+
+.weapon-browse-heading .section-title { margin: 0; font-size: 24px; }
+
+.all-weapons-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  color: var(--ink-muted);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.all-weapons-btn:hover,
+.all-weapons-btn:focus-visible {
+  background: var(--surface-3);
+  color: var(--ink);
+}
+
+.all-weapons-btn span { color: var(--accent); font-size: 16px; }
+
 .weapon-category-card {
   position: relative;
   background: var(--surface-2);
   border-radius: var(--radius-md);
-  padding: 24px 20px;
+  min-height: 112px;
+  padding: 22px 20px 54px;
   text-decoration: none;
-  transition: all 0.2s;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
   overflow: hidden;
+  transition: background-color 160ms ease;
 }
 
-.weapon-category-card:hover {
-  border-color: var(--hairline-strong);
-  transform: translateY(-2px);
+.weapon-category-card:hover,
+.weapon-category-card:focus-visible {
+  background: var(--surface-3);
+}
+
+.weapon-category-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 
 .weapon-category-card h3 {
@@ -1043,31 +1083,41 @@ html, body {
   margin-bottom: 0;
   position: relative;
   z-index: 2;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 160ms ease;
 }
 
-.weapon-category-card:hover h3 {
-  transform: translateY(-16px);
-}
+.weapon-category-card:hover h3,
+.weapon-category-card:focus-visible h3 { color: var(--accent-hover); }
 
 .hover-skin-img {
   position: absolute;
-  bottom: -10px;
-  right: -10px;
-  width: 150px;
-  height: 70px;
-  object-fit: contain;
-  transform: rotate(25deg) translate(20px, 40px);
-  opacity: 0;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none;
   z-index: 1;
-  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+  left: 50%;
+  bottom: 0;
+  width: 148px;
+  height: 62px;
+  object-fit: contain;
+  opacity: 0;
+  transform: translate(-50%, 18px) scale(0.92);
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.55));
+  pointer-events: none;
+  transition: opacity 220ms ease, transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.weapon-category-card:hover .hover-skin-img {
-  opacity: 1;
-  transform: rotate(25deg) translate(0px, 10px);
+.weapon-category-card:hover .hover-skin-img,
+.weapon-category-card:focus-visible .hover-skin-img {
+  opacity: 0.82;
+  transform: translate(-50%, 0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .weapon-category-card,
+  .weapon-category-card h3,
+  .hover-skin-img { transition: none; }
+}
+
+@media (max-width: 520px) {
+  .weapon-browse-heading { align-items: flex-start; flex-direction: column; }
 }
 
 .rankings-panel {
@@ -1230,8 +1280,8 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 40px 0;
-  margin-top: 24px;
+  padding: 24px 0;
+  margin-top: 0;
   mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }

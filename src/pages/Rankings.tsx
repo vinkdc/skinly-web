@@ -77,11 +77,11 @@ export function Rankings() {
   useEffect(() => {
     if (allSkins.length === 0) return;
     const imgMap: Record<string, string> = {};
-    POPULAR_WEAPONS.forEach(w => {
-       const matching = allSkins.filter(s => s.weapon.toLowerCase() === w.toLowerCase());
-       if (matching.length > 0) {
-          imgMap[w] = matching[Math.floor(Math.random() * matching.length)].skin_image;
-       }
+    POPULAR_WEAPONS.forEach(weapon => {
+      const matching = allSkins.filter(skin => skin.weapon.toLowerCase() === weapon.toLowerCase());
+      if (matching.length > 0) {
+        imgMap[weapon] = matching[Math.floor(Math.random() * matching.length)].skin_image;
+      }
     });
     setWeaponImages(imgMap);
   }, [allSkins]);
@@ -102,20 +102,20 @@ export function Rankings() {
       </div>
 
       <div className="container" style={{ paddingBottom: 80 }}>
-        <h2 className="section-title" style={{ marginTop: 40, marginBottom: 24, fontSize: 24 }}>Browse by Weapon</h2>
+        <div className="weapon-browse-heading">
+          <h2 className="section-title">Browse by Weapon</h2>
+          <Link to="/rankings/all" className="all-weapons-btn">All Weapons <span aria-hidden="true">→</span></Link>
+        </div>
         
         <div className="weapon-categories-grid">
           {POPULAR_WEAPONS.map(weapon => (
             <Link to={`/rankings/${weapon.toLowerCase()}`} key={weapon} className="weapon-category-card">
               <h3>{weapon}</h3>
               {weaponImages[weapon] && (
-                <img src={weaponImages[weapon]} alt={weapon} className="hover-skin-img" />
+                <img src={weaponImages[weapon]} alt="" className="hover-skin-img" />
               )}
             </Link>
           ))}
-          <Link to={`/rankings/all`} className="weapon-category-card" style={{ background: "var(--surface-3)" }}>
-            <h3>All Weapons</h3>
-          </Link>
         </div>
 
         <div className="rankings-split" style={{ marginTop: 60, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
