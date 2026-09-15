@@ -93,18 +93,19 @@ export function Landing() {
         </div>
 
         <div className="container hero-content-wrapper">
-          <h1 className="hero-title">Track your skin usage in real time.</h1>
+          <h1 className="hero-title">Track the skins you actually use.</h1>
           <p className="hero-subtitle">
-            Skinly quietly runs in the background and logs every cosmetic you hold—including the premium skins you pick up from fallen enemies. Dive into your history or explore the complete skin database to find your next loadout.
+            Skinly automatically records your cosmetic usage while you play, so you can review your history and discover your real favorites afterward.
           </p>
           <div className="hero-actions">
-            <a href="#download" className="btn-primary">Download for Windows</a>
-            <a href="#demo" className="btn-secondary">View Demo</a>
+            <a href="#demo" className="btn-primary">Watch Prototype Demo</a>
+            <span className="btn-secondary" aria-disabled="true">Download coming later</span>
           </div>
           
           {/* 3D Tilted Preview */}
           <div style={{ perspective: 1200 }}>
             <motion.div 
+              id="demo"
               className="hero-preview"
               style={{
                 rotateX: previewRotateX,
@@ -135,7 +136,7 @@ export function Landing() {
               <div className="bento-content">
                 <h3>Live Tracking powers your session</h3>
                 <p>
-                  Skinly detects every skin you equip in real time—whether it's from your own collection or a weapon you picked up off the ground. Powered safely by Overwolf's game event API.
+                  Skinly detects the skins you equip during a session, including weapons you pick up. Designed to use Overwolf's VALORANT Game Events Provider for supported game events in production.
                 </p>
               </div>
               <img src="/app-screenshot.png" alt="App interface" className="bento-img-right" />
@@ -152,7 +153,7 @@ export function Landing() {
 
             <WobbleCard containerClassName="feature-card feature-card-full bento-indigo" className="wobble-card-inner">
               <div className="bento-content full">
-                <h3>Session History & Advanced Usage Analytics</h3>
+                <h3>PLANNED — Session History & Usage Analytics</h3>
                 <p>
                   Review every game session with a timeline of skin switches, durations, and weapon-level detail. 
                   See how long you've used each skin, which weapons you swap the most, and discover patterns in your play style.
@@ -178,7 +179,7 @@ export function Landing() {
           <div className="steps-grid">
             <div className="step">
               <h3>Install Skinly</h3>
-              <p>Download the Overwolf companion app. It takes less than a minute to set up.</p>
+              <p>Download the Skinly desktop companion. It takes less than a minute to set up.</p>
             </div>
 
             <div className="step">

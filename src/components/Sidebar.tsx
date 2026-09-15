@@ -86,7 +86,7 @@ export function Sidebar() {
         </div>
 
         <div className="sidebar-footer">
-          <button className="sidebar-download-btn">
+          <button className="sidebar-download-btn" disabled>
             <div className="sidebar-link-icon"><Download size={20} /></div>
             <AnimatePresence>
               {isOpen && (
@@ -96,7 +96,7 @@ export function Sidebar() {
                   exit={{ opacity: 0, x: -10, transition: { duration: 0.1 } }}
                   style={{ whiteSpace: "nowrap", overflow: "hidden" }}
                 >
-                  Download App
+                  Download coming later
                 </motion.span>
               )}
             </AnimatePresence>

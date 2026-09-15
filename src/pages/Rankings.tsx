@@ -93,10 +93,10 @@ export function Rankings() {
           <SkinMarquee allSkins={allSkins} />
         </div>
         <div className="container" style={{ textAlign: "center", marginTop: 24 }}>
-          <div className="section-eyebrow">Community Data</div>
+          <div className="section-eyebrow">Community Data · Sample Data</div>
           <h1 style={{ textTransform: "uppercase", fontWeight: 700 }}>Skin Rankings & Tier Lists</h1>
           <p className="hero-subtitle" style={{ maxWidth: 600, margin: "0 auto" }}>
-            Discover the most popular skins in VALORANT. Data is aggregated from millions of loadouts tracked by Skinly.
+            Preview how community cosmetic trends could be presented using aggregated, opt-in Skinly data.
           </p>
         </div>
       </div>
